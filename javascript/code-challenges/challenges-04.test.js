@@ -227,11 +227,8 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
-  const dayOrder = {Monday: 1, Tuesday:2, Wednesday: 3, Thursday: 4, Friday: 5};
-  return arr.sort((a, b) => {
-    if (dayOrder[a.dayOfWeek] < dayOrder[b.dayOfWeek] && a.start === b.start && a.end < b.end) {
-      return -1;
-    } else if (dayOrder[a.dayOfWeek] < dayOrder[b.dayOfWeek] && a.start < b.start) {
+  return sortMeetingsByDay(arr).sort((a, b) => {
+    if (a.start === b.start || a.dayOfWeek === b.dayOfWeek && a.start < b.start) {
       return -1;
     } else {
       return 1;
