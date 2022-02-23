@@ -130,15 +130,16 @@ const gruffaloCrumble = {
   ],
 };
 
+// Sheyna went over this in class which helped me get it.  I was close yesterday, seeing how she did it was very helpful!
 
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
-  let ingredientsArray = recipe.ingredients.slice();
-  for (let ingredient of ingredientsArray) {
-    result.push(ingredient.slice(2));
-  }
-
+  recipe.ingredients.forEach(ingredient => {
+    let slicedA = ingredient.slice(ingredient.indexOf(' ') +1);
+    let slicedB = slicedA.slice(slicedA.indexOf(' ') +1);
+    result.push(slicedB);
+  });
   return result;
 };
 
