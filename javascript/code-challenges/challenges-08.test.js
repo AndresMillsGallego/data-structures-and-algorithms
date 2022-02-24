@@ -54,18 +54,26 @@ let characters = [
 
 const sortByChildren = (charArray) => {
   // Solution code here...
+  let newArr = charArray.sort((a, b) => {
+    if (a.children.length < b.children.length) {
+      return -1;
+    } if (a.children.length === b.children.length && a.name < b.name) {
+      return -1;
+    }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named containsW that takes in a string. This function should use a regular expression pattern to return true if the string contains the letter 'w' in lower case or false if it does not. 
+Write a function named containsW that takes in a string. This function should use a regular expression pattern to return true if the string contains the letter 'w' in lower case or false if it does not.
 
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
   // Solution code here...
-  const hasW = new RegExp('/[w]');
+  const hasW = /[w]/;
   return hasW.test(str);
 };
 
@@ -108,7 +116,9 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
-  return str.match(/^[A-Z]/g);
+  let isCap = /\b[A-Z][a-zA-Z]*/g;
+  let capWords = str.match(isCap);
+  return capWords || [];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -119,6 +129,8 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  let aToJ = /^[A-J]/;
+  return arr.filter(city => aToJ.test(city));
 };
 
 /* ------------------------------------------------------------------------------------------------
