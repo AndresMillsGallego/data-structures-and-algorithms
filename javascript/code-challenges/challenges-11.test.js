@@ -179,7 +179,12 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
-
+  let mostVerticallyChallenged;
+  let shortStack = Math.min(...data.map(obj => obj.height));
+  for (let obj of data) {
+    +obj.height === +shortStack ? mostVerticallyChallenged = obj.name : mostVerticallyChallenged;
+  }
+  return mostVerticallyChallenged;
 };
 
 /* ------------------------------------------------------------------------------------------------
