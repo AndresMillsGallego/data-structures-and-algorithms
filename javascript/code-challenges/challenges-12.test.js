@@ -47,7 +47,7 @@ If it does, return true. If not, return false.
 
 const hasNumber = (string) => {
   // Solution code here...
-  return /^[a-z|A-Z]{1,}[0-9]{1,}\w|\d$/.test(string);
+  return /([a-zA-Z]+\d)/.test(string);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,6 +68,7 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
+  return /((\w+)\.|(\w+)(@\w+))(\.com|\.net|\.org)/.test(email);
 };
 
 /* ------------------------------------------------------------------------------------------------
