@@ -24,4 +24,5 @@ To run your tests
 
 |Table of Contents|
 |:---:|
-|[Array Reverse README](.//array-reverse/README.md)|
+|[Array Reverse README](./array-reverse/README.md)|
+|[Array Insert Shift README](./array-insert-shift/README.md)|
