@@ -1,6 +1,5 @@
 'use strict';
 
-// code along with Jacob during our class discussion on linked lists
 class Node {
   constructor(value) {
     this.value = value;
@@ -9,33 +8,29 @@ class Node {
 }
 
 class LinkedList {
-  constructor(value) {
-    this.head = value ? new Node(value) : null;
-    
+  constructor() {
+    this.head = null;
   }
-
-  // read all values in the list while traversing
-  traverse(callback) {
+  // add a node to the start of the list
+  addsToStart(value) {
     try {
-      let currentRef = this.head;
-      while(currentRef !== null) {
-        callback(currentRef.value);
-        currentRef = currentRef.next;
+      let newNode = new Node(value);
+      if (!this.head) {
+        this.head = newNode;
+      } else {
+        newNode.next = this.head;
+        this.head = newNode;
       }
-
     } catch (error) {
-      console.log('Error with the traverse method: ', error);
+      console.log('Error with adding a Node to the HEAD: ', error);
     }
-  }
-  // add values to the end of the list
-  add() {
   }
 
   // Determines if a passed value exists in the list
   includes(value) {
     try {
       let currentRef = this.head;
-      while(currentRef !== null) {
+      while (currentRef !== null) {
         if (currentRef.value === value) {
           return true;
         }
@@ -47,25 +42,12 @@ class LinkedList {
       console.log('Error with the includes method: ', error);
     }
   }
-
-  // add values to the start of the list
-  addsToStart(value) {
-    try {
-      let newNode = new Node(value);
-      newNode.next = this.head;
-      this.head = newNode;
-
-    } catch (error) {
-      console.log('Error with adding a Node to the HEAD: ', error);
-    }
-  }
-
   // Returns a string representing the values in the list
   toString() {
     try {
       let linkedListString = '';
       let currentRef = this.head;
-      while(currentRef !== null) {
+      while (currentRef !== null) {
         linkedListString += currentRef.value + ' -> ';
         currentRef = currentRef.next;
         if (currentRef === null) {
@@ -80,28 +62,18 @@ class LinkedList {
   }
 }
 
-let ll = new LinkedList();
-console.log(ll);
+let myList = new LinkedList();
 
-let nodeA = new Node(20);
-let nodeB = new Node(25);
-let nodeC = new Node(12);
-let nodeD = new Node(-13);
+myList.addsToStart(13);
+myList.addsToStart(51);
+myList.addsToStart(67);
+myList.addsToStart(128);
+myList.addsToStart(999);
 
-ll.head = nodeA;
-ll.head.next = nodeB;
-ll.head.next.next = nodeC;
-ll.head.next.next.next = nodeD;
-
-console.log(ll.toString());
-ll.addsToStart(101);
-console.log(ll.toString());
-console.log(ll.includes(45));
-
-module.exports = {
-  LinkedList,
-  Node,
-};
+console.log(myList.head.value);
+console.log(myList.includes(999));
+console.log(myList.toString());
+module.exports = LinkedList;
 
 
 
