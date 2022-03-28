@@ -74,3 +74,7 @@ console.log(myList.head.value);
 console.log(myList.includes(999));
 console.log(myList.toString());
 module.exports = LinkedList;
+
+
+
+
