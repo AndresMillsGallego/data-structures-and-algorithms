@@ -68,11 +68,47 @@ class LinkedList {
   // adds a new node to the list BEFORE a passed value's index
   insertBefore(value, newValue) {
     let newNode = new Node(newValue);
+    let currentRef = this.head;
+    while (currentRef.next.value !== value) {
+      currentRef = currentRef.next;
+    }
+    let placeHolder = currentRef.next;
+    currentRef.next = newNode;
+    currentRef.next.next = placeHolder;
+    this.length++;
   }
 
   // adds a new node to the list AFTER a passed value's index
   insertAfter(value, newValue) {
     let newNode = new Node(newValue);
+    let currentRef = this.head;
+    while (currentRef.value !== value) {
+      currentRef = currentRef.next;
+    }
+    let placeHolder = currentRef.next;
+    currentRef.next = newNode;
+    currentRef.next.next = placeHolder;
+    this.length++;
+  }
+
+  // finds a node based on the passed value and deletes it
+  deleteNode(value) {
+    if (this.head.value === value) {
+      this.head = this.head.next;
+    } else {
+      let nodeBefore = this.head;
+      let nodeCurrent = nodeBefore.next;
+      while (nodeCurrent) {
+        if (nodeCurrent.value === value) {
+          nodeBefore.next = nodeCurrent.next;
+          nodeCurrent = nodeCurrent.next;
+          return value;
+        } else {
+          nodeBefore = nodeCurrent;
+          nodeCurrent = nodeCurrent.next;
+        }
+      }
+    }
   }
 
   // Returns a string representing the values in the list
@@ -107,7 +143,12 @@ console.log(myList.head.value);
 console.log(myList.includes(999));
 console.log(myList.toString());
 myList.addsToTail(4032);
+myList.insertBefore(67, 99);
+myList.insertAfter(999, 1);
 console.log(myList.toString());
+myList.deleteNode(128);
+console.log(myList.toString());
+
 module.exports = LinkedList;
 
 

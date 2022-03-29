@@ -40,4 +40,31 @@ describe('Linked List', () => {
     let linkedListString = newList.toString();
     expect(linkedListString).toEqual('999 -> 128 -> 67 -> 51 -> 13 -> NULL');
   });
+
+  test('Should add a new node BEFORE the node that contains a given value', () => {
+    let newList = new LinkedList();
+    newList.addsToHead(13);
+    newList.addsToHead(51);
+    newList.insertBefore(13, 49);
+    expect(newList.head.next.value).toEqual(49);
+  });
+
+  test('Should add a new node After the node that contains a given value', () => {
+    let newList = new LinkedList();
+    newList.addsToHead(13);
+    newList.addsToHead(51);
+    newList.insertAfter(51, 666);
+    expect(newList.head.next.value).toEqual(666);
+  });
+
+  test('Should find a node based on a passed value and delete it', () => {
+    let newList = new LinkedList();
+    newList.addsToHead(13);
+    newList.addsToHead(51);
+    newList.addsToHead(67);
+    newList.addsToHead(128);
+    newList.addsToHead(999);
+    let deletedNode = newList.deleteNode(67);
+    expect(deletedNode).toEqual(67);
+  });
 });

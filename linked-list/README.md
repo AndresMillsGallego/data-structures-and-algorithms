@@ -3,7 +3,7 @@
 This challenge is our first foray into the `linked list` data structure.  
 We started off in class 05 with Jacob getting to know the basics of the linked list, and even started with a bit of code.  
 
-## Challenge
+## Challenge 05
 
 This challenge is a continuation of the class 05 lecture and will include the following:
 
@@ -22,6 +22,24 @@ This challenge is a continuation of the class 05 lecture and will include the fo
   - Returns:  A string representing all the values in the Linked List formatted as: 
     > `"[a] -> [b] -> [c] -> NULL`
 
+## Challenge 06
+
+- Create the `append` method (I actually called this one `addsToTail`)
+  - Arguments: `new value`
+  - Adds a new node with the given `new value` to the end (tail) of the list
+
+- Create the `insertBefore` method
+  - Arguments: `value`, `new value`
+  - Adds a new node with the given `new value` immediately _before_ the first node that has the `value` passed in
+
+- Create the `insertAfter` method
+  - Arguments: `value`, `new value`
+  - Adds a new node with the given `new value` immediately _after_ the first node that has the `value` passed in
+
+- Create the `deleteNode` method (Stretchy!)
+  - Arguments: `value`
+  - Finds a node in the list based on the `value` passed in, then deletes it
+
 ## Approach & Efficiency
 I went off the class lecture and then did a bit of research on my own.  The following 2 articles were particularly helpful:
 
@@ -30,4 +48,3 @@ I went off the class lecture and then did a bit of research on my own.  The foll
 [Linked List Implementation in JavaScript](https://javascript.plainenglish.io/linked-list-implementation-in-javascript-ca0d3038f797)
 
 ## API
-<!-- Description of each method publicly available to your Linked List -->
