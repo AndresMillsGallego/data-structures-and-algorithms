@@ -47,4 +47,28 @@ I went off the class lecture and then did a bit of research on my own.  The foll
 
 [Linked List Implementation in JavaScript](https://javascript.plainenglish.io/linked-list-implementation-in-javascript-ca0d3038f797)
 
-## API
+## Solutions
+
+Here is a sample of the stretch goal for Challenge 06
+
+``` JavaScript
+ // finds a node based on the passed value and deletes it
+  deleteNode(value) {
+    if (this.head.value === value) {
+      this.head = this.head.next;
+    } else {
+      let nodeBefore = this.head;
+      let nodeCurrent = nodeBefore.next;
+      while (nodeCurrent) {
+        if (nodeCurrent.value === value) {
+          nodeBefore.next = nodeCurrent.next;
+          nodeCurrent = nodeCurrent.next;
+          return value;
+        } else {
+          nodeBefore = nodeCurrent;
+          nodeCurrent = nodeCurrent.next;
+        }
+      }
+    }
+  }
+```
