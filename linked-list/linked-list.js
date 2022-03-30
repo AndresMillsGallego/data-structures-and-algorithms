@@ -111,6 +111,37 @@ class LinkedList {
     }
   }
 
+  // Returns a node's value that is "k" places from the end of the list.
+  kthFromEnd(k) {
+    let thisManyNodes = this.length - k;
+    let nodeCounter = 0;
+    let currentRef = this.head;
+    if (k > this.length || k < 0) {
+      return 'Invalid Number';
+    }
+    if (this.length === 1) {
+      return this.head.value;
+    } else {
+      while (nodeCounter !== thisManyNodes) {
+        currentRef = currentRef.next;
+        nodeCounter++;
+      }
+      return currentRef.value;
+    }
+  }
+
+  // Returns the value of the node in the middle of the list
+  middleNode() {
+    let middleIndex = Math.floor(this.length / 2);
+    let nodeCounter = 0;
+    let currentRef = this.head;
+    while (nodeCounter !== middleIndex) {
+      currentRef = currentRef.next;
+      nodeCounter++;
+    }
+    return currentRef.value;
+  }
+
   // Returns a string representing the values in the list
   toString() {
     try {
@@ -134,20 +165,25 @@ class LinkedList {
 let myList = new LinkedList();
 
 myList.addsToHead(13);
-myList.addsToHead(51);
-myList.addsToHead(67);
-myList.addsToHead(128);
-myList.addsToHead(999);
+console.log(myList.length);
+// myList.addsToHead(51);
+// myList.addsToHead(67);
+// myList.addsToHead(128);
+// myList.addsToHead(999);
 
-console.log(myList.head.value);
-console.log(myList.includes(999));
-console.log(myList.toString());
-myList.addsToTail(4032);
-myList.insertBefore(67, 99);
-myList.insertAfter(999, 1);
-console.log(myList.toString());
-myList.deleteNode(128);
-console.log(myList.toString());
+// console.log(myList.head.value);
+// console.log(myList.includes(999));
+// console.log(myList.toString());
+// myList.addsToTail(4032);
+// myList.insertBefore(67, 99);
+// myList.insertAfter(999, 1);
+// console.log(myList.toString());
+// myList.deleteNode(128);
+// myList.includes(4032);
+// console.log(myList.toString());
+// console.log(myList.length);
+// console.log(myList.kthFromEnd());
+// console.log(myList.middleNode());
 
 module.exports = LinkedList;
 
