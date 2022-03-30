@@ -67,4 +67,80 @@ describe('Linked List', () => {
     let deletedNode = newList.deleteNode(67);
     expect(deletedNode).toEqual(67);
   });
+
+  test('Should return a node\'s value depending on it\'s "k"position from the tail of the list', () => {
+    let newList = new LinkedList();
+    newList.addsToHead(13);
+    newList.addsToHead(51);
+    newList.addsToHead(67);
+    newList.addsToHead(128);
+    newList.addsToHead(999);
+    let kthNodeValue = newList.kthFromEnd(3);
+    expect(kthNodeValue).toEqual(67);
+  });
+
+  test('Should return "Invalid Number" if the passed k value is bigger than the length of the list', () => {
+    let newList = new LinkedList();
+    newList.addsToHead(13);
+    newList.addsToHead(51);
+    newList.addsToHead(67);
+    newList.addsToHead(128);
+    newList.addsToHead(999);
+    let kthNodeValue = newList.kthFromEnd(6);
+    expect(kthNodeValue).toEqual('Invalid Number');
+  });
+
+  test('If a linked list is only 1 node long, then it should return that node\'s value as long as <=k<=1 ', () => {
+    let newList = new LinkedList();
+    newList.addsToHead(13);
+    let kthNodeValue = newList.kthFromEnd(0);
+    expect(kthNodeValue).toEqual(13);
+  });
+
+  test('Should return "Invalid Number" if a negative value is passed into k', () => {
+    let newList = new LinkedList();
+    newList.addsToHead(13);
+    newList.addsToHead(51);
+    newList.addsToHead(67);
+    newList.addsToHead(128);
+    newList.addsToHead(999);
+    let kthNodeValue = newList.kthFromEnd(-5);
+    expect(kthNodeValue).toEqual('Invalid Number');
+  });
+
+  test('Should return with the value of the first node if k === this.length', () => {
+    let newList = new LinkedList();
+    newList.addsToHead(13);
+    newList.addsToHead(51);
+    newList.addsToHead(67);
+    newList.addsToHead(128);
+    newList.addsToHead(999);
+    let kthNodeValue = newList.kthFromEnd(5);
+    expect(kthNodeValue).toEqual(999);
+  });
+
+  test('Should return with the value of the "happy path", somewhere near the middle of the list', () => {
+    let newList = new LinkedList();
+    newList.addsToHead(13);
+    newList.addsToHead(51);
+    newList.addsToHead(67);
+    newList.addsToHead(128);
+    newList.addsToHead(999);
+    newList.addsToHead(4);
+    newList.addsToHead(1328);
+    newList.addsToHead(666);
+    let kthNodeValue = newList.kthFromEnd(4);
+    expect(kthNodeValue).toEqual(128);
+  });
+
+  test('Should return the node\'s value at the middle of the list', () => {
+    let newList = new LinkedList();
+    newList.addsToHead(13);
+    newList.addsToHead(51);
+    newList.addsToHead(67);
+    newList.addsToHead(128);
+    newList.addsToHead(999);
+    let middleNodeValue = newList.middleNode();
+    expect(middleNodeValue).toEqual(67);
+  });
 });
