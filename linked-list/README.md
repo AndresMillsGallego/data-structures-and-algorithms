@@ -52,6 +52,15 @@ This challenge is a continuation of the class 05 lecture and will include the fo
   - Return the node's value that is in the middle of the linked list
   
 
+## Challenge 08
+
+- Create a function called `zipTwoLists`
+  - Arguments: 2 linked lists
+  - Return: New Linked List, zipped as noted below
+  - Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the the zipped list.
+
+![Whiteboard](./zipped-list-whiteboard.png)
+
 ## Approach & Efficiency
 I went off the class lecture and then did a bit of research on my own.  The following 2 articles were particularly helpful:
 
@@ -107,6 +116,36 @@ Using the `this.length` property I had already added, I was able to solve Challe
         nodeCounter++;
       }
       return currentRef.value;
+    }
+  }
+```
+
+I am quite happy with this solution to the merge lists challenge
+
+```JavaScript
+  zipTwoLists(listX, listY) {
+    //sets the starting node reference
+    let xCurrent = listX.head;
+    let yCurrent = listY.head;
+    // While neither list is null, add the values to the new list alternatively
+    while (xCurrent !== null && yCurrent !== null) {
+
+      this.addsToTail(xCurrent.value);
+      this.addsToTail(yCurrent.value);
+      xCurrent = xCurrent.next;
+      yCurrent = yCurrent.next;
+    }
+    // if one list is longer and the algorithm breaks out of the while loop, add the rest of the values to the new list
+    if (yCurrent) {
+      while (yCurrent !== null) {
+        this.addsToTail(yCurrent.value);
+        yCurrent = yCurrent.next;
+      }
+    } else if (xCurrent) {
+      while (xCurrent !== null) {
+        this.addsToTail(xCurrent.value);
+        xCurrent = xCurrent.next;
+      }
     }
   }
 ```
