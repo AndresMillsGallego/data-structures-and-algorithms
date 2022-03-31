@@ -143,4 +143,45 @@ describe('Linked List', () => {
     let middleNodeValue = newList.middleNode();
     expect(middleNodeValue).toEqual(67);
   });
+
+  test('Should merge two lists together alternatively', () => {
+    let myList = new LinkedList();
+
+    myList.addsToHead(13);
+    myList.addsToHead(51);
+    myList.addsToHead(67);
+
+    let yourList = new LinkedList();
+    yourList.addsToHead(128);
+    yourList.addsToHead(999);
+    yourList.addsToHead(4032);
+
+    let zippedList = new LinkedList();
+    zippedList.zipTwoLists(myList, yourList);
+    expect(zippedList.length).toEqual(6);
+    expect(zippedList.head.value).toEqual(67);
+    expect(zippedList.tail.value).toEqual(128);
+
+  });
+
+  test('Should merge two lists together alternatively, even when they are different sized lists', () => {
+    let myList = new LinkedList();
+
+    myList.addsToHead(13);
+    myList.addsToHead(51);
+    myList.addsToHead(67);
+    myList.addsToHead(666);
+
+    let yourList = new LinkedList();
+    yourList.addsToHead(128);
+    yourList.addsToHead(999);
+    yourList.addsToHead(4032);
+
+    let zippedList = new LinkedList();
+    zippedList.zipTwoLists(myList, yourList);
+    expect(zippedList.length).toEqual(7);
+    expect(zippedList.head.value).toEqual(666);
+    expect(zippedList.tail.value).toEqual(13);
+
+  });
 });

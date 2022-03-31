@@ -160,16 +160,52 @@ class LinkedList {
       console.log('Error converting the list to a string: ', error);
     }
   }
+  // Merges two lists into a new list like a zipper
+  zipTwoLists(listX, listY) {
+    //sets the starting node reference
+    let xCurrent = listX.head;
+    let yCurrent = listY.head;
+    // While neither list is null, add the values to the new list alternatively
+    while (xCurrent !== null && yCurrent !== null) {
+
+      this.addsToTail(xCurrent.value);
+      this.addsToTail(yCurrent.value);
+      xCurrent = xCurrent.next;
+      yCurrent = yCurrent.next;
+    }
+    // if one list is longer and the algorithm breaks out of the while loop, add the rest of the values to the new list
+    if (yCurrent) {
+      while (yCurrent !== null) {
+        this.addsToTail(yCurrent.value);
+        yCurrent = yCurrent.next;
+      }
+    } else if (xCurrent) {
+      while (xCurrent !== null) {
+        this.addsToTail(xCurrent.value);
+        xCurrent = xCurrent.next;
+      }
+    }
+  }
 }
 
-let myList = new LinkedList();
 
-myList.addsToHead(13);
-console.log(myList.length);
+// let myList = new LinkedList();
+
+// myList.addsToHead(13);
 // myList.addsToHead(51);
 // myList.addsToHead(67);
-// myList.addsToHead(128);
-// myList.addsToHead(999);
+
+// let yourList = new LinkedList();
+// yourList.addsToHead(128);
+// yourList.addsToHead(999);
+// yourList.addsToHead(4032);
+
+// let zippedList = new LinkedList();
+// zippedList.zipTwoLists(myList, yourList);
+// console.log(myList.toString());
+// console.log(yourList.toString());
+// console.log(zippedList.toString());
+
 
 // console.log(myList.head.value);
 // console.log(myList.includes(999));
