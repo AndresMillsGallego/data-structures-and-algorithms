@@ -47,19 +47,9 @@ class Queue {
     this.back = null;
   }
 
-  dequeue() {
-    let temp = this.front;
-    this.front = this.front.next;
-    if (!this.isEmpty) {
-      this.back = null;
-    }
-    temp.next = null;
-    return temp.value;
-  }
-
   enqueue(value) {
     let newNode = new Node(value);
-    if (!this.isEmpty) {
+    if (!this.isEmpty()) {
       this.back.next = newNode;
     } else {
       this.front = newNode;
@@ -67,8 +57,19 @@ class Queue {
     this.back = newNode;
   }
 
+  dequeue() {
+    let temp = this.front;
+    this.front = this.front.next;
+    if (!temp.next) {
+      this.back = null;
+    }
+    temp.next = null;
+    return temp.value;
+  }
+
+
   peek() {
-    if (!this.isEmpty) {
+    if (!this.isEmpty()) {
       return this.front.value;
     } else {
       return 'The Queue is empty';
