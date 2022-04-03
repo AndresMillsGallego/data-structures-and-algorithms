@@ -19,20 +19,30 @@ class Stack {
   }
 
   pop() {
-    if (!this.isEmpty()) {
-      let temp = this.top;
-      this.top = temp.next;
-      temp.next = null;
-      return temp.value;
+    try {
+      if (!this.isEmpty()) {
+        let temp = this.top;
+        this.top = temp.next;
+        temp.next = null;
+        return temp.value;
+      } else {
+        return 'The Stack is empty';
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   }
 
 
   peek() {
-    if (!this.isEmpty()) {
-      return this.top.value;
-    } else {
-      return 'The Stack is empty';
+    try {
+      if (!this.isEmpty()) {
+        return this.top.value;
+      } else {
+        return 'The Stack is empty';
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   }
 
@@ -58,21 +68,33 @@ class Queue {
   }
 
   dequeue() {
-    let temp = this.front;
-    this.front = this.front.next;
-    if (!temp.next) {
-      this.back = null;
+    try {
+      if (!this.isEmpty()) {
+        let temp = this.front;
+        this.front = this.front.next;
+        if (!temp.next) {
+          this.back = null;
+        }
+        temp.next = null;
+        return temp.value;
+      } else {
+        return 'The Queue is empty';
+      }
+    } catch (error) {
+      console.log(error.message);
     }
-    temp.next = null;
-    return temp.value;
   }
 
 
   peek() {
-    if (!this.isEmpty()) {
-      return this.front.value;
-    } else {
-      return 'The Queue is empty';
+    try {
+      if (!this.isEmpty()) {
+        return this.front.value;
+      } else {
+        return 'The Queue is empty';
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   }
 
