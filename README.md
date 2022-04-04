@@ -28,3 +28,4 @@ To run your tests
 |[Array Insert Shift README](./array-insert-shift/README.md)|
 |[Linked Lists](./linked-list/README.md)|
 |[Stacks and Queues](./stack-and-queue/README.md)|
+|[Pseudo Queues](./stack-and-queue/pseudo-queue/README.md)|
