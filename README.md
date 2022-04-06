@@ -30,3 +30,4 @@ To run your tests
 |[Stacks and Queues](./stack-and-queue/README.md)|
 |[Pseudo Queues](./stack-and-queue/pseudo-queue/README.md)|
 |[Animal Shelter](./stack-and-queue/animal-shelter/README.md)|
+|[Validate Brackets](./stack-and-queue/validate-brackets/README.md)|
