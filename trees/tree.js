@@ -58,6 +58,12 @@ class BinaryTree {
     }
     return results;
   }
+
+  // Returns the max value from a BinaryTree instance.
+  getMax() {
+    // Any of the traversal methods could work here.
+    return Math.max(...this.breadthFirst());
+  }
 }
 
 class BinarySearchTree extends BinaryTree {
@@ -128,3 +134,4 @@ console.log(tree);
 tree.add(7);
 console.log(tree);
 console.log(tree.contains(20));
+console.log(tree.getMax());
