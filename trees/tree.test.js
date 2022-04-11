@@ -55,4 +55,8 @@ describe('Testing our BinaryTree and BinarySearchTree classes', () =>{
     expect(newSearchTree.contains(13)).toEqual(true);
     expect(newSearchTree.contains(5)).toEqual(false);
   });
+
+  test('Should return the max value in a BinaryTree instance', () => {
+    expect(newSearchTree.getMax()).toEqual(999);
+  });
 });

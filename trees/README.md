@@ -6,10 +6,15 @@ This week's topic is the data structure `Trees`.  We will be learning about this
 
 ## Challenge
 
+**Challenge 15**
 Per the class lecture, implement a `Node` class that will be used with our `Trees`.
 Implement a `Binary Tree` Class and accompanying methods
 Implement a `Binary Search Tree` Class and accompanying methods
 Write passing tests for all classes and methods
+
+**Challenge 16**
+
+For this challenge we were tasked with creating a `getMax` method to the `BinaryTree` class. The purpose is to traverse a tree and return the max value.  
 
 ## Approach & Efficiency
 
@@ -24,6 +29,7 @@ I also used this article on [Medium](https://medium.com/swlh/binary-search-tree-
   - `preOrder` method
   - `inOrder` method
   - `postOrder` method
+  - `getMax` method
 - `BinarySearchTree` class
   - `add` method
   - `contains` method
