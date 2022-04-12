@@ -1,5 +1,6 @@
 'use strict';
 
+// Creates the Node class for a tree
 class Node {
   constructor(value) {
     this.value = value;
@@ -8,11 +9,13 @@ class Node {
   }
 }
 
+// Creates the BinaryTree class
 class BinaryTree {
   constructor() {
     this.root = null;
   }
 
+  // Creates the preOrder method of traversal
   preOrder() {
     let results = [];
     let traverse = (node) => {
@@ -24,6 +27,7 @@ class BinaryTree {
     return results;
   }
 
+  // Creates the inOrder method of traversal
   inOrder() {
     let results = [];
     let traverse = (node) => {
@@ -35,6 +39,7 @@ class BinaryTree {
     return results;
   }
 
+  // Creates the postOrder method of traversal
   postOrder() {
     let results = [];
     let traverse = (node) => {
@@ -46,6 +51,7 @@ class BinaryTree {
     return results;
   }
 
+  // Creates the breadthFirst method of traversal which should read by level starting at the root
   breadthFirst() {
     let results = [];
     let current = this.root;
@@ -66,6 +72,7 @@ class BinaryTree {
   }
 }
 
+//Creates the sub class BinarySearchTree from the main BinaryTree class
 class BinarySearchTree extends BinaryTree {
   constructor() {
     super();
@@ -125,13 +132,12 @@ module.exports = {
   BinarySearchTree,
 };
 
-let tree = new BinarySearchTree();
-console.log(tree);
-tree.add(13);
-console.log(tree);
-tree.add(40);
-console.log(tree);
-tree.add(7);
-console.log(tree);
-console.log(tree.contains(20));
-console.log(tree.getMax());
+// let tree = new BinarySearchTree();
+// console.log(tree);
+// tree.add(13);
+// console.log(tree);
+// tree.add(40);
+// console.log(tree);
+// tree.add(7);
+// console.log(tree);
+// console.log(tree.breadthFirst());
