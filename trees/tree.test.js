@@ -59,4 +59,11 @@ describe('Testing our BinaryTree and BinarySearchTree classes', () =>{
   test('Should return the max value in a BinaryTree instance', () => {
     expect(newSearchTree.getMax()).toEqual(999);
   });
+
+  test('Should successfully return results from a call to the breadthFirst method', () => {
+    let results = newSearchTree.breadthFirst();
+    expect(results[0]).toEqual(666);
+    expect(results[1]).toEqual(13);
+    expect(results[2]).toEqual(999);
+  });
 });

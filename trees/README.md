@@ -4,6 +4,8 @@ This week's topic is the data structure `Trees`.  We will be learning about this
 
 ![Whiteboard](./class-15-uml.png)
 
+![Breadth First UML](./breadth-first-uml.png)
+
 ## Challenge
 
 **Challenge 15**
@@ -15,6 +17,10 @@ Write passing tests for all classes and methods
 **Challenge 16**
 
 For this challenge we were tasked with creating a `getMax` method to the `BinaryTree` class. The purpose is to traverse a tree and return the max value.  
+
+**Challenge 17**
+
+For this challenge we created the `breadthFirst` method which traverses our tree starting at the root and working it's way down.  
 
 ## Approach & Efficiency
 
@@ -30,6 +36,7 @@ I also used this article on [Medium](https://medium.com/swlh/binary-search-tree-
   - `inOrder` method
   - `postOrder` method
   - `getMax` method
+  - `breadthFirst` method
 - `BinarySearchTree` class
   - `add` method
   - `contains` method
