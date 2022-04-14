@@ -8,8 +8,8 @@ class KaryNode {
 }
 
 class Tree {
-  constructor(node) {
-    this.root = node;
+  constructor() {
+    this.root = null;
   }
 
   traverse() {
@@ -31,6 +31,7 @@ class Tree {
   }
 }
 
+// Helper function to return one of the 3 values
 function isFuzzBuzzy(value) {
   let newValue;
   if (value % 3 === 0 && value % 5 === 0) {
@@ -51,41 +52,45 @@ function isFuzzBuzzy(value) {
 
 function fizzBuzzTree(tree) {
   let fizzyQueue = [];
-  let buzzyArray = [];
+  let newTree = new Tree();
 
   fizzyQueue.push(tree.root);
+
   while (fizzyQueue.length > 0) {
     let length = fizzyQueue.length;
     let current;
     for (let i = 0; i < length; i++) {
       current = fizzyQueue.shift();
-      buzzyArray.push(isFuzzBuzzy(current.value));
+      if (newTree.root === null) {
+        newTree.root = new KaryNode(isFuzzBuzzy(current.value));
+      } else {
+        newTree.root.children.push(new KaryNode(isFuzzBuzzy(current.value)));
+      }
       for (let child of current.children) {
         fizzyQueue.push(child);
       }
     }
   }
-  return buzzyArray;
+  return newTree;
 }
 
+// Saving this functino to generate random numbers for the Nodes
+// function randomNumber() {
+//   return Math.floor(Math.random() * 300);
+// }
 
-function randomNumber() {
-  return Math.floor(Math.random() * 300);
-}
+// let tree = new Tree();
+// tree.root = new KaryNode(15);
+// tree.root.children.push(new KaryNode(20), new KaryNode(25), new KaryNode(30));
 
-let tree = new Tree(new KaryNode(5));
-tree.root.children.push(new KaryNode(randomNumber()), new KaryNode(randomNumber()), new KaryNode(randomNumber()));
-tree.root.children[0].children.push(new KaryNode(randomNumber()));
-tree.root.children[1].children.push(new KaryNode(randomNumber()));
-tree.root.children[2].children.push(new KaryNode(randomNumber()));
 
-// let results = tree.traverse();
-// console.log(tree.root);
-// console.log(tree.root.children);
-// console.log(tree.root.children[0].children);
-// console.log(tree.root.children[1].children);
-// console.log(tree.root.children[2].children);
-// console.log(results);
+// let fizzyResults = fizzBuzzTree(tree);
+// console.log(fizzyResults);
+// console.log(fizzyResults.root.children);
 
-let fizzyResults = fizzBuzzTree(tree);
-console.log(fizzyResults);
+module.exports = {
+  KaryNode,
+  Tree,
+  fizzBuzzTree
+};
+
