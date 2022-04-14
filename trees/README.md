@@ -2,9 +2,11 @@
 
 This week's topic is the data structure `Trees`.  We will be learning about this data structure, how and when to use it, and how to write good code for it's implementation
 
-![Whiteboard](./class-15-uml.png)
+![Whiteboard](../trees/assets/class-15-uml.png)
 
-![Breadth First UML](./breadth-first-uml.png)
+![Breadth First WhiteBoard](../trees/assets/breadth-first-uml.png)
+
+![FizzBuzz WhiteBoard](../trees/assets/fizzBuzz-whiteboard.png)
 
 ## Challenge
 
@@ -21,6 +23,10 @@ For this challenge we were tasked with creating a `getMax` method to the `Binary
 **Challenge 17**
 
 For this challenge we created the `breadthFirst` method which traverses our tree starting at the root and working it's way down.  
+
+**Challenge 18**
+
+For this challenge we were tasked with traversing over an existing K-ary Tree, then returning a new K-ary tree with the values converted to `Fizz`, `Buzz`, `FizzBuzz` of a string value of the number all based on whether the value is divisible by 3 and 5, 3, or 5.
 
 ## Approach & Efficiency
 
@@ -40,3 +46,5 @@ I also used this article on [Medium](https://medium.com/swlh/binary-search-tree-
 - `BinarySearchTree` class
   - `add` method
   - `contains` method
+- `KaryNode` class
+- `fizzBuzzTree` function
