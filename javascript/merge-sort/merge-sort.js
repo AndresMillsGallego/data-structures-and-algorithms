@@ -1,15 +1,13 @@
 'use strict';
 
 function mergeSort(arr) {
+  const mid = Math.floor(arr.length / 2);
 
-  if (arr.length <= 1){
+  if (arr.length < 2){
     return arr;
   }
-  const mid = Math.floor(arr.length / 2);
-  const left = mergeSort(arr.slice(0, mid));
-  const right = mergeSort(arr.slice(mid));
-  console.log(left, right)
-  return merge(left, right);
+  const left = arr.splice(0, mid);
+  return merge(mergeSort(left), mergeSort(arr));
 
 }
 
@@ -23,23 +21,11 @@ function merge(left, right) {
     } else {
       mergedArr.push(right.shift());
     }
-    return [...mergedArr, ...left, ...right];
   }
-
-  // while (left.length) {
-  //   mergedArr.push(left.shift());
-  // }
-  // while (right.length) {
-  //   mergedArr.push(right.shift());
-  // }
-  // return mergedArr;
+  return [...mergedArr, ...left, ...right];
 }
 
 let testArray = [8, 4, 23, 42, 16, 15];
-
-let arr1 = [1,2,3];
-let arr2 = [4,5,6];
-console.log(merge(arr1, arr2));
 
 let results = mergeSort(testArray);
 console.log('results',results);
