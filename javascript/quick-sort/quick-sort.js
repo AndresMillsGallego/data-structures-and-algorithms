@@ -11,7 +11,7 @@ function quickSort(arr, left, right) {
 function partition(arr, left, right) {
   let pivot = arr[right];
   let low = left - 1;
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = left; i < right; i++) {
     if (arr[i] <= pivot) {
       low++;
       swap(arr, i, low);
@@ -31,7 +31,7 @@ function swap(arr, i, low) {
 
 let testArray = [8, 4, 23, 42, 16, 15];
 
-quickSort(testArray, 0, testArray.length);
+quickSort(testArray, 0, testArray.length - 1);
 console.log(testArray);
 
 module.exports = quickSort;
