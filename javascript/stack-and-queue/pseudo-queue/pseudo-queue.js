@@ -1,6 +1,6 @@
 'use strict';
 
-const { Node } = require('../stack-and-queue');
+const { Node } = require('../stack-and-queue/stack-and-queue');
 
 class Stack {
   constructor() {
