@@ -28,14 +28,14 @@ class LinkedList {
     this.length++;
   }
 
-  includes(key) {
-    let currentRef = this.head;
-    while (currentRef !== null) {
-      if (currentRef.value[key] === key) {
-        return currentRef.value;
-      }
-    }
-  }
+  // includes(key) {
+  //   let currentRef = this.head;
+  //   while (currentRef !== null) {
+  //     if (currentRef.value[key] === key) {
+  //       return currentRef.value;
+  //     }
+  //   }
+  // }
 }
 
 module.exports = LinkedList;
