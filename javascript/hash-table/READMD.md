@@ -33,3 +33,30 @@ The methods we are going to create, and test for this challenge are:
 
 My approach to this challenge was to build off what we did during class 30 with Ryan.  The Node and Linked List structures I am comfortable with.  The Hash Table logic seems very straight forward and useful actually.  Checking keys and values as they potentially become nested inside Linked Lists due to collisions is the only thing that could prove tricky.
 
+
+## Code Challenge 31 - RepeatedWord function
+
+The challenge today is to write a function that takes in a `string` as an argument and return the first repeated word.
+
+### Approach
+
+My approach to this challenge will be to split the string into an array first.  
+Then, I will traverse that array, pushing each work into a new array.  
+I will immediately begin comparing each word in the loop to see if it exists in the new array.  If it does, return the word.  If not, return "No Match Found"
+
+Here is my solution, which so far has passed all tests:
+
+```JavaScript
+  const repeatedWord = (string) => {
+  let stringyArray = string.toLowerCase().split(/\W+/);
+  let array1 = [];
+  for (let word of stringyArray) {
+    if (array1.includes(word)) {
+      return word;
+    } else {
+      array1.push(word);
+    }
+  }
+  return 'No match found';
+};
+```
