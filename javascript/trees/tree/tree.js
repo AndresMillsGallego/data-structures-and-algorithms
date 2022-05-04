@@ -132,6 +132,8 @@ module.exports = {
   BinarySearchTree,
 };
 
+let tree = new BinaryTree();
+console.log(tree);
 // let tree = new BinarySearchTree();
 // console.log(tree);
 // tree.add(13);
