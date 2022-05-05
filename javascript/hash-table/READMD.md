@@ -60,3 +60,22 @@ Here is my solution, which so far has passed all tests:
   return 'No match found';
 };
 ```
+## Code Challenge 33 - `leftJoin`
+
+The purpose of this function is to take in two hashmaps and return a new data structure.  This new structure will contain concatenated values if there is the same key in both hashmaps.
+
+## Challenge
+
+My strategy will be to:
+
+1. Return a list of the keys from the first hashmap
+2. Using this list, check to see if any of these keys exist in the 2nd hashmap
+3. If they do, take the values from both keys and concatenate them into a single value made up of the key, the first value, the second value
+4. It there is a key that only exists in the first hashmap, then return the concatenated value with `null` in the last place
+5. This new data structure will most likely be an array.
+
+## Solution
+
+```JavaScript
+
+```
