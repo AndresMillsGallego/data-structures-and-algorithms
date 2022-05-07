@@ -77,5 +77,24 @@ My strategy will be to:
 ## Solution
 
 ```JavaScript
-
+  const leftJoin = (a, b) => {
+  let joinedArray = [];
+  let keys = a.keys();
+  for (let key of keys) {
+    let array = [];
+    array.push(key[0]);
+    array.push(a.get(key[0]));
+    if (b.contains(key[0])) {
+      array.push(b.get(key[0]));
+    } else {
+      array.push(null);
+    }
+    joinedArray.push(array);
+  }
+  return joinedArray;
+};
 ```
+
+Logged results from calling the function:
+
+![left-join results](./left-join.png)
