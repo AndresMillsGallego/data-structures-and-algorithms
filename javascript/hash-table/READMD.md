@@ -64,6 +64,10 @@ Here is my solution, which so far has passed all tests:
 
 The purpose of this function is to take in two hashmaps and return a new data structure.  This new structure will contain concatenated values if there is the same key in both hashmaps.
 
+
+## Whiteboard
+
+![whiteboard](./challenge-33-whiteboard.png)
 ## Challenge
 
 My strategy will be to:
