@@ -14,6 +14,7 @@ describe('Testing our new Graph class and methods', () => {
     const B = graph.addVertex('B');
     const C = graph.addVertex('C');
     graph.addDirectedEdge(B, C);
+    graph.addDirectedEdge(C, B);
     expect(graph.neighborList.get(B).length).toEqual(1);
   });
 
@@ -44,4 +45,14 @@ describe('Testing our new Graph class and methods', () => {
     expect(size).toEqual(9);
   });
 
+  test('Should return any nodes in the "visited" list in the order they were visited', () => {
+    let graphB = new Graph();
+    const A = graphB.addVertex('A');
+    const B = graphB.addVertex('B');
+    const C = graphB.addVertex('C');
+    graphB.addDirectedEdge(A, B);
+    graphB.addDirectedEdge(B, C);
+    let visited = graphB.breadthFirst(A);
+    expect(visited.size).toEqual(3);
+  });
 });
