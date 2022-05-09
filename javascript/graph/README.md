@@ -32,4 +32,41 @@ For this challenge we are tasked with implementing a new class, the `Graph` data
 
 My approach will be to build off the work we did during lecture with Jacob and if necessary, do some further research online to learn more about the `Graph` class.
 
-## API
+## Code Challenge 36
+
+This challenge was to add the `breadthFirst` method to our `Graph` class.
+
+- `breadthFirst`
+  - Arguments: Node
+  - Return: A collection of nodes in the order they were visited.
+
+Based on the following Graph example:
+
+![Graph](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-36/graph.PNG)
+
+The output should be:
+
+[Pandora, Arendelle, Metroville, Monstroplolis, Narnia, Naboo]
+
+Building off of the work done in class during lecture, here is my solution (credit to Jacob for getting us started)
+
+```JavaScript
+  breadthFirst(root, cb) {
+    const queue = [root];
+    const visited = new Set();
+    let current = null;
+    visited.add(root);
+    while (queue.length) {
+      current = queue.pop();
+      if (cb) cb(current.value);
+      const neighbors = this.getNeighbors(current);
+      for (let edge of neighbors) {
+        if (!visited.has(edge.vertex)) {
+          visited.add(edge.vertex);
+          queue.unshift(edge.vertex);
+        }
+      }
+    }
+    return visited;
+  }
+```

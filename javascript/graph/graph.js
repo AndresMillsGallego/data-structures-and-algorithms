@@ -40,6 +40,25 @@ class Graph {
   size() {
     return this.neighborList.size;
   }
+
+  breadthFirst(root, cb) {
+    const queue = [root];
+    const visited = new Set();
+    let current = null;
+    visited.add(root);
+    while (queue.length) {
+      current = queue.pop();
+      if (cb) cb(current.value);
+      const neighbors = this.getNeighbors(current);
+      for (let edge of neighbors) {
+        if (!visited.has(edge.vertex)) {
+          visited.add(edge.vertex);
+          queue.unshift(edge.vertex);
+        }
+      }
+    }
+    return visited;
+  }
 }
 
 module.exports = Graph;
