@@ -31,8 +31,8 @@ b.set('Han', 'Scoundral');
 b.set('Boba', 'Bounty Hunter');
 b.set('Babu', 'Mechanic');
 
-console.log(a.keys())
-console.log(b.keys())
+console.log(a.keys());
+console.log(b.keys());
 console.log(leftJoin(a,b));
 
 module.exports = leftJoin;

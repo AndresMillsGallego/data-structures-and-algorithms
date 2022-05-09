@@ -33,45 +33,13 @@ class Graph {
     return [...this.neighborList.get(vertex)];
   }
 
-  breadthFirst(root, cb) {
-    const queue = [root];
-    const visited = new Set();
-    let current = null;
-    while (queue.length) {
-      current = queue.pop();
-      if (cb) cb(current.value);
-      const neighbors = this.getNeighbors(current);
-      for (let edge of neighbors) {
-        if (!visited.has(edge.vertex)) {
-          visited.add(edge.vertex);
-          queue.unshift(edge.vertex);
-        }
-      }
-    }
-    return visited;
+  getNodes() {
+    return this.neighborList;
   }
 
-  depthFirst(root, cb) {
-    const stack = [root];
-    const visited = new Set();
-    visited.add(root);
-    let current = null;
-
-    while (stack.length) {
-      current = stack.pop();
-      if (cb) cb(current.value);
-      const neighbors = this.getNeighbors(current);
-      for (let edge of neighbors) {
-        if (!visited.has(edge.vertex)) {
-          visited.add(edge.vertex);
-          stack.push(edge.vertex);
-        }
-      }
-    }
-    return visited;
+  size() {
+    return this.neighborList.size;
   }
 }
-
-const graph = new Graph();
 
 module.exports = Graph;
