@@ -7,7 +7,7 @@ class Vertex {
 }
 
 class Edge {
-  constructor(vertex, weight = 0) {
+  constructor(vertex, weight) {
     this.vertex = vertex;
     this.weight = weight;
   }
@@ -24,9 +24,9 @@ class Graph {
     return vertex;
   }
 
-  addDirectedEdge(start, end) {
+  addDirectedEdge(start, end, weight) {
     const neighbors = this.neighborList.get(start);
-    neighbors.push(new Edge(end));
+    neighbors.push(new Edge(end, weight));
   }
 
   getNeighbors(vertex) {
@@ -62,8 +62,27 @@ class Graph {
 }
 
 const businessTrip = (graph, cities) => {
-  
-  return;
+  // If the graph is empty, break out and return this message
+  if (!graph.neighborList.size) {
+    return 'Your Graph Is Empty';
+  }
+  // This gets the edges from the first city.
+  let cityRoutes = graph.neighborList.get(cities[0]);
+  // If the second city exists in the edges, return true plus the cost of the flight
+  if (cityRoutes) { // If cityRoutes is empty, or falsy, we go straight to the false statement.
+    for (let route of cityRoutes) {
+      if (route.vertex.value === cities[1].value) {
+        return [true, `$${route.weight}`];
+      }
+    }
+  }
+  return [false, '$0'];
 };
 
-module.exports = Graph;
+
+
+module.exports = {
+  Graph,
+  businessTrip,
+};
+
