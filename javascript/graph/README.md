@@ -70,3 +70,27 @@ Building off of the work done in class during lecture, here is my solution (cred
     return visited;
   }
 ```
+
+## Code Challenge 37
+
+For this challenge we are tasked with creating a function called `businessTrip` that will return a boolean and $$ value based on if a "direct flight" trip is possible (and if true, the price of the flight) between two cities that get passed in as arguments.
+
+## Challenge
+
+- Write a function called business trip
+- Arguments: graph, array of city names
+- Return: cost or null
+
+Based on this sample `Graph`:
+
+![Graph Sample](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-37/GraphDay27.PNG)
+
+Here are some possible outputs:
+
+
+|Input | Output |
+|------|--------|
+|[Metroville, Pandora, ] |	True, $82|
+|[Arendelle, New Monstropolis, Naboo] |	True, $115|
+|[Naboo, Pandora]	 | False, $0|
+|[Narnia, Arendelle, Naboo] |	False, $0|

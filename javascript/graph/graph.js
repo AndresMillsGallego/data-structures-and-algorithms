@@ -61,4 +61,9 @@ class Graph {
   }
 }
 
+const businessTrip = (graph, cities) => {
+  
+  return;
+};
+
 module.exports = Graph;
