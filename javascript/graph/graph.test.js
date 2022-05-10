@@ -1,6 +1,6 @@
 'use strict';
 
-const Graph = require('./graph');
+const { Graph } = require('./graph');
 
 describe('Testing our new Graph class and methods', () => {
   let graph = new Graph();
