@@ -1,5 +1,11 @@
 # Graphs
 
+![Graph](./graph-uml-1.png)
+
+![Graph](./graph-uml-2.png)
+
+![Graph](./graph-uml-3.png)
+
 For this challenge we are tasked with implementing a new class, the `Graph` data structure.
 
 ## Challenge
@@ -69,4 +75,60 @@ Building off of the work done in class during lecture, here is my solution (cred
     }
     return visited;
   }
+```
+
+## Code Challenge 37
+
+For this challenge we are tasked with creating a function called `businessTrip` that will return a boolean and $$ value based on if a "direct flight" trip is possible (and if true, the price of the flight) between two cities that get passed in as arguments.
+
+## Challenge
+
+- Write a function called business trip
+- Arguments: graph, array of city names
+- Return: cost or null
+
+Based on this sample `Graph`:
+
+![Graph Sample](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-37/GraphDay27.PNG)
+
+Here are some possible outputs:
+
+
+|Input | Output |
+|------|--------|
+|[Metroville, Pandora, ] |	True, $82|
+|[Arendelle, New Monstropolis, Naboo] |	True, $115|
+|[Naboo, Pandora]	 | False, $0|
+|[Narnia, Arendelle, Naboo] |	False, $0|
+
+## Solution
+
+I am happy with my solution here.  Essentially I pass in:
+
+- A `Graph`
+- An array with two city names
+
+Then, I get a list of edges based on the first city.  If the second city is included in that array of edges, then we return `true` + the cost of the flight. 
+If not, then we return `false` + $0
+
+Here is my solution:
+
+```JavaScript
+  const businessTrip = (graph, cities) => {
+    // If the graph is empty, break out and return this message
+    if (!graph.neighborList.size) {
+      return 'Your Graph Is Empty';
+    }
+    // This gets the edges from the first city.
+    let cityRoutes = graph.neighborList.get(cities[0]);
+    // If the second city exists in the edges, return true plus the cost of the flight
+    if (cityRoutes) { // If cityRoutes is empty, or falsy, we go straight to the false statement.
+      for (let route of cityRoutes) {
+        if (route.vertex.value === cities[1].value) {
+          return [true, `$${route.weight}`];
+        }
+      }
+    }
+    return [false, '$0'];
+  };
 ```
