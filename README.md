@@ -31,4 +31,5 @@ To run your tests
 |[Pseudo Queues](./stack-and-queue/pseudo-queue/README.md)|
 |[Animal Shelter](./stack-and-queue/animal-shelter/README.md)|
 |[Validate Brackets](./stack-and-queue/validate-brackets/README.md)|
-|[Trees](./trees/README.md)|
+|[Trees](./javascript/trees/README.md)|
+|[Graphs](./javascript/graph/README.md)|
