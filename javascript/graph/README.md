@@ -132,3 +132,47 @@ Here is my solution:
     return [false, '$0'];
   };
 ```
+
+## Code Challenge 38 - `depthFirst`
+
+## Challenge
+
+- Write the following method for the Graph class:
+
+  - Name: Depth first
+  - Arguments: Node (Starting point of search)
+  - Return: A collection of nodes in their pre-order depth-first traversal order
+  - Program output: Display the collection
+
+Given the following input:
+
+![Graph](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-38/Day28Example.PNG)
+
+The ouput would look this:
+
+[ A, B, C, G, D, E, H, F ]
+
+## Solution
+
+Here is my working solution.  You can see that the main difference between `breadthFirst` and `depthFirst` is how the items get added and removed from the array (ie, using a stack vs a queue):
+
+```JavaScript
+    depthFirst(root, cb) {
+    const stack = [root];
+    const visited = new Set();
+    visited.add(root);
+    let current = null;
+    while (stack.length) {
+      current = stack.pop();
+      if (cb) cb(current.value);
+      const neighbors = this.getNeighbors(current);
+      for (let edge of neighbors) {
+        if (!visited.has(edge.vertex)) {
+          visited.add(edge.vertex);
+          stack.push(edge.vertex);
+        }
+      }
+    }
+    return visited;
+  }
+```

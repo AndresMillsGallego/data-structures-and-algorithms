@@ -55,4 +55,16 @@ describe('Testing our new Graph class and methods', () => {
     let visited = graphB.breadthFirst(A);
     expect(visited.size).toEqual(3);
   });
+
+  test('Should return all nodes from the "visited" list using depth first traversal', () => {
+    let graphB = new Graph();
+    const A = graphB.addVertex('A');
+    const B = graphB.addVertex('B');
+    const C = graphB.addVertex('C');
+    graphB.addDirectedEdge(A, B);
+    graphB.addDirectedEdge(B, C);
+    let visited = graphB.depthFirst(A);
+    expect(visited.size).toEqual(3);
+  });
+
 });
